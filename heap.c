@@ -62,7 +62,7 @@ Item PQdelMin(){
 
     //retornar o item removido;
     pos[min.id] = -1;
-    return pq[N--] //retorna o ultimo e depois decrementa o tamanho do vetor
+    return pq[N--]; //retorna o ultimo e depois decrementa o tamanho do vetor
 }
 
 void PQdecreaseKey(int id, int nova_dist) {
@@ -72,4 +72,25 @@ void PQdecreaseKey(int id, int nova_dist) {
         pq[i].dist = nova_dist;
         fixUp(i); // atualiza a heap com o caminho novo se ele for melhor.
     }
+}   
+
+//testando a heap
+int main(){
+    PQinit(10);
+    Item a = {0,50};
+    Item b = {1,20};
+    Item c = {2,30};
+    PQinsert(a);
+    PQinsert(b);
+    PQinsert(c);
+    Item menor = PQdelMin();
+    printf("Quem está saindo da heap agora é %d e sua distância é %d\n" , menor.id, menor.dist);
+    
+    PQdecreaseKey(0,5); // o de id 0 agora deve receber dist 5;
+    menor = PQdelMin();
+    printf("Novo menor: id:%d e dist %d\n", menor.id,menor.dist);
+
+    return 0;
+
+
 }
