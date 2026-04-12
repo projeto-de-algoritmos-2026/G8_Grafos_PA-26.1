@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Global de Roteamento com Dijkstra</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+    <div class="page-shell">
+        <main class="workspace">
+            <section class="map-panel">
+                <div class="panel-heading">
+                    <div>
+                        <p class="eyebrow">Topologia Visual</p>
+                        <h2>Roteadores e Enlaces</h2>
+                    </div>
+                </div>
+
+                <div class="map-stage">
+                    <img class="map-background" src="./img/map.svg" alt="Mapa global em SVG">
+                    <svg id="network-layer" class="network-layer" viewBox="0 0 2599 1733"
+                        preserveAspectRatio="xMidYMid meet" aria-hidden="true"></svg>
+                    <div id="router-layer" class="router-layer"></div>
+                </div>
+            </section>
+
+            <aside class="control-panel">
+                <div id="backend-status" class="status-banner status-banner--loading">
+                    Conectando ao servidor...
+                </div>
+
+                <section class="panel-block">
+                    <p class="eyebrow">Roteador selecionado</p>
+                    <div id="selected-router-card" class="selected-router-card"></div>
+
+                    <form id="route-form" class="route-form">
+                        <label for="destination-input">Destino:</label>
+                        <div class="route-form__row">
+                            <input id="destination-input" name="destination" list="router-id-list" autocomplete="off"
+                                placeholder="Ex.: Brasil">
+                            <button class="primary-button" type="submit">Calcular</button>
+                        </div>
+                        <datalist id="router-id-list"></datalist>
+                        <button id="clear-route-button" class="ghost-button ghost-button--wide" type="button">
+                            Limpar
+                        </button>
+                    </form>
+                </section>
+
+                <section class="panel-block">
+                    <p class="eyebrow">Resultado</p>
+                    <div id="route-summary" class="route-summary"></div>
+                </section>
+            </aside>
+        </main>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+</body>
+
+</html>
