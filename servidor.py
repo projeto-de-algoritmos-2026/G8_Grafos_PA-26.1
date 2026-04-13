@@ -8,7 +8,7 @@ class OSPFHandler(http.server.SimpleHTTPRequestHandler):
 
         # 1. Carregamento inicial do mapa
         if parsed_path.path == '/state':
-            subprocess.run(["roteador_ospf.exe"])
+            subprocess.run(["./roteador_ospf"])
             self.path = '/state.json'
 
         # 2. Roda quando clicar em "Calcular"
