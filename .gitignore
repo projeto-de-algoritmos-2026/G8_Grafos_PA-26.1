@@ -1,4 +1,4 @@
-./roteador_ospf.exe
-./roteador_ospf
-./route.json
-./state.json
+roteador_ospf.exe
+roteador_ospf
+route.json
+state.json
