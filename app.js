@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8080";
+const API_BASE = "";
 const VIEWBOX_WIDTH = 2599;
 const VIEWBOX_HEIGHT = 1733;
 const ROUTER_LAYOUT = {
