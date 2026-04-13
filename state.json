@@ -1,0 +1,35 @@
+{
+  "routers": [
+    {"id": "canada", "label": "canada", "active": true, "x": 520, "y": 420},
+    {"id": "estados_unidos", "label": "estados_unidos", "active": true, "x": 470, "y": 660},
+    {"id": "mexico", "label": "mexico", "active": true, "x": 500, "y": 835},
+    {"id": "brasil", "label": "brasil", "active": true, "x": 740, "y": 1185},
+    {"id": "argentina", "label": "argentina", "active": true, "x": 780, "y": 1475},
+    {"id": "inglaterra", "label": "inglaterra", "active": true, "x": 1215, "y": 640},
+    {"id": "espanha", "label": "espanha", "active": true, "x": 1175, "y": 790},
+    {"id": "nigeria", "label": "nigeria", "active": true, "x": 1300, "y": 1035},
+    {"id": "africa_do_sul", "label": "africa_do_sul", "active": true, "x": 1440, "y": 1490},
+    {"id": "india", "label": "india", "active": true, "x": 1685, "y": 985},
+    {"id": "china", "label": "china", "active": true, "x": 1980, "y": 850},
+    {"id": "japao", "label": "japao", "active": true, "x": 2215, "y": 860},
+    {"id": "australia", "label": "australia", "active": true, "x": 2095, "y": 1455}
+  ],
+  "links": [
+    {"from": "canada", "to": "estados_unidos", "cost": 2, "available": true},
+    {"from": "estados_unidos", "to": "mexico", "cost": 3, "available": true},
+    {"from": "estados_unidos", "to": "inglaterra", "cost": 15, "available": true},
+    {"from": "estados_unidos", "to": "japao", "cost": 18, "available": true},
+    {"from": "mexico", "to": "brasil", "cost": 8, "available": true},
+    {"from": "brasil", "to": "argentina", "cost": 4, "available": true},
+    {"from": "brasil", "to": "espanha", "cost": 14, "available": true},
+    {"from": "brasil", "to": "nigeria", "cost": 12, "available": true},
+    {"from": "inglaterra", "to": "espanha", "cost": 3, "available": true},
+    {"from": "inglaterra", "to": "india", "cost": 20, "available": true},
+    {"from": "espanha", "to": "nigeria", "cost": 7, "available": true},
+    {"from": "nigeria", "to": "africa_do_sul", "cost": 10, "available": true},
+    {"from": "africa_do_sul", "to": "india", "cost": 18, "available": true},
+    {"from": "india", "to": "china", "cost": 6, "available": true},
+    {"from": "china", "to": "japao", "cost": 4, "available": true},
+    {"from": "china", "to": "australia", "cost": 12, "available": true}
+  ]
+}

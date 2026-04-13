@@ -1,7 +1,7 @@
-# Algoritmo de Dijkstra no mapa global de roteadores
+# Algoritmo de Dijkstra no Protocolo Open Shortest Path First (OSPF)
 
-Numero da Lista: 8  
-Conteudo da Disciplina: Grafos
+Numero da Lista: 8
+Conteudo da Disciplina: Grafos 1
 
 ## Alunos
 | Matricula | Aluno |
@@ -10,66 +10,43 @@ Conteudo da Disciplina: Grafos
 | 222014859 | Ian Costa Guimaraes |
 
 ## Sobre
-Este projeto demonstra o algoritmo de Dijkstra com heap minima aplicado a uma rede global de roteadores.
+Este projeto consiste em uma simulação visual de roteamento em rede, construída para demonstrar, de forma prática e interativa, como um algoritmo de caminho mínimo pode ser aplicado sobre um grafo que representa conexões entre países/roteadores distribuídos em um mapa mundial. A ideia central é que cada país exibido no mapa funcione como um nó da rede, enquanto as ligações entre eles representam enlaces com determinados custos. A partir disso, o sistema permite que o usuário escolha uma origem e um destino e solicite o cálculo da melhor rota possível entre esses dois pontos, evidenciando o funcionamento do algoritmo em tempo de execução.
 
-O frontend roda no navegador sobre um mapa SVG do mundo. Cada roteador pode ser ligado ou desligado e o usuario escolhe um destino digitando o `id` do pais em minusculo, por exemplo `brasil`, `india` ou `inglaterra`.
+## Screenshots
+### África do Sul -> Canadá
+![Exemplo 1](./img/exemplo1.png)
 
-O backend foi implementado em C e exposto como um servidor HTTP local. Ele mantem o estado dos roteadores, executa o Dijkstra com heap e devolve:
+### Brasil -> Inglaterra
+![Exemplo 2](./img/exemplo2.png)
 
-- estado atual dos roteadores e enlaces;
-- tabela de custos a partir do roteador de origem;
-- caminho minimo entre origem e destino.
+### Índia -> Argentina
+![Exemplo 3](./img/exemplo3.png)
 
-## Estrutura principal
-- `index.html`: interface principal para abrir com Live Server.
-- `styles.css`: estilo da visualizacao do mapa, enlaces e painel lateral.
-- `app.js`: integracao do navegador com o backend em C.
-- `algoritmos/heap.c` e `algoritmos/heap.h`: implementacao da heap minima.
-- `algoritmos/dijkstra.c` e `algoritmos/dijkstra.h`: topologia da rede e algoritmo de Dijkstra.
-- `server/server.c`: servidor HTTP local consumido pelo frontend.
-- `server/build_backend.ps1`: script de compilacao do backend.
-
-## Instalacao
+## Instalação
 ### Pre-requisitos
-- Windows com `gcc` disponivel no terminal.
-- Extensao Live Server no VS Code, ou outro servidor estatico equivalente.
+- Windows ou Linux com `gcc` disponível no terminal.
+- Python 3.
 
-### Compilar o backend
+### Como rodar o projeto
 No PowerShell, dentro da pasta do projeto:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\server\build_backend.ps1
+```bash
+cd C:\diretório-do-projeto
+```
+```bash
+gcc dijkstra.c heap.c -o roteador_ospf
+```
+```bash
+python servidor.py
 ```
 
-Isso gera o executavel em `build/router_server.exe`.
+Com o servidor em execucao, abra no navegador:
 
-### Iniciar o backend
-```powershell
-.\build\router_server.exe
+```text
+http://127.0.0.1:8080/index.html
 ```
-
-O servidor fica disponivel em `http://127.0.0.1:8080`.
-
-### Abrir o frontend
-Abra `index.html` com o Live Server. O frontend faz requisicoes para o backend em C na porta `8080`.
 
 ## Uso
-1. Inicie o backend em C.
-2. Abra `index.html` com o Live Server.
-3. Clique em um roteador no mapa para defini-lo como origem.
-4. Digite o `id` do destino no campo lateral e clique em `Calcular`.
-5. Ligue ou desligue roteadores no mapa para forcar o recalculo do menor caminho.
-
-### Exemplo
-- Origem: `inglaterra`
-- Destino: `brasil`
-
-Com todos os roteadores ativos, a rota minima inicial passa por `nigeria`. Se `nigeria` for desligada, o sistema recalcula e pode escolher outro caminho, como via `estados_unidos`.
-
-## Endpoints do backend
-- `GET /state`: retorna roteadores e enlaces.
-- `POST /router/power?id=<roteador>&active=0|1`: altera o estado de energia de um roteador.
-- `GET /route?source=<origem>&target=<destino>`: retorna a menor rota e a tabela de custos.
-
-## Observacoes
-O projeto foi estruturado para funcionar bem no fluxo pedido: frontend com Live Server e algoritmo executando em C. Como o ambiente atual nao possui Emscripten, a comunicacao C -> HTML foi feita por HTTP local, que preserva o algoritmo em C e mantem a demonstracao interativa em tempo real.
+1. Clique em um roteador no mapa para defini-lo como origem.
+2. Digite o `id` (nome do roteador) do destino no campo lateral e clique em `Calcular`.
+3. Resultado observável na seção onde conta com os roteadores visitados e o custo total.
