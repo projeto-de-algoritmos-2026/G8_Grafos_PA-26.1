@@ -1,13 +1,13 @@
 {
   "reachable": true,
-  "cost": 41,
+  "cost": 30,
   "message": "Rota calculada com sucesso via OSPF!",
   "path": [
     "india",
-    "inglaterra",
-    "espanha",
-    "brasil",
-    "argentina"
+    "china",
+    "japao",
+    "estados_unidos",
+    "canada"
   ],
   "distances": [
     {"id": "canada", "cost": 30, "reachable": true},

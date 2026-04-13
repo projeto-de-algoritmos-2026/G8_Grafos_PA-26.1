@@ -1,7 +1,9 @@
 # Algoritmo de Dijkstra no Protocolo Open Shortest Path First (OSPF)
 
-Numero da Lista: 8
-Conteudo da Disciplina: Grafos 1
+- Número da Lista: 8
+- Conteúdo da Disciplina: Grafos 1
+
+LINK DO VÍDEO DE APRESENTAÇÃO: https://youtu.be/RPd642XMryg
 
 ## Alunos
 | Matricula | Aluno |
